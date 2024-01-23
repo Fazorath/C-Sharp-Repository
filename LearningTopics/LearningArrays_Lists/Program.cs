@@ -25,8 +25,8 @@ for (int i = 0; i < movies.Length; i++)
 /*
 List<string> shoppinglist = new List<string>();
 shoppinglist.Add("Dreams");
-shoppinglist.Add("Hella cum");
-shoppinglist.Add("cumwater");
+shoppinglist.Add("Hella water");
+shoppinglist.Add("water water");
 
 for (int i = 0; i < shoppinglist.Count; i++)
 {
@@ -43,9 +43,12 @@ for (int i = 0; i < shoppinglist.Count; i++)
 */
 
 // List/Array CHALLENGE
-int arraysize = 0;
+
+    int arraysize = 0;
 Console.Write("How many students are inside of your classroom: ");
 arraysize = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine();
+Console.WriteLine("Enter the name of the Students: \n");
 
 string[] students = new string[arraysize];
 
@@ -54,9 +57,12 @@ for (int i = 0; i < students.Length; i++)
     students[i] = Console.ReadLine();
 }
 Console.ForegroundColor = ConsoleColor.Red;
-Console.WriteLine(" - - - - - - - - - - - - - - - - - - ");
+Console.WriteLine("- - - - - - - - - - - - - - - - - - - - - - \n");
+Console.WriteLine("Name of students\n");
+
 Console.ForegroundColor = ConsoleColor.Green;
 for (int i = 0; i < students.Length; i++)
 {
     Console.WriteLine($"{i+1}. { students[i]}");
 }
+

@@ -27,21 +27,19 @@ if (name != "Brandon")
 {
 Console.WriteLine($"\nUsername: {name}\nPassword: {password}");
 Console.WriteLine();
-Console.WriteLine();
+
 }
 if (name =="Brandon")
 {
     Console.WriteLine("\nNah Because you really thought you were on some goat shit\n" +
-        "well guess what lil boy\n" +
+        "well guess what lil Boy\n" +
         "You are..\n" +
-        "\nI Love you Lil Man");
-    Console.WriteLine($"\nUsername: {name}\nPassword: {password}\n");
-    
+        "\nI Love you <3");
 }
 
 
 
-
+Console.WriteLine();
 Console.ForegroundColor = ConsoleColor.Red;
 Console.WriteLine("Press Enter to move on..\n");
 
