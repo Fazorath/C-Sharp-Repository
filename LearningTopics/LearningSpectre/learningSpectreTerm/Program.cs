@@ -1,5 +1,8 @@
 ﻿using Spectre.Console;
 
+
+
+Console.SetWindowSize(150, 100  );
 AnsiConsole.Write(new FigletText("Learning Spectre\n\n").Color(Color.Red).Centered());
 
 
@@ -25,9 +28,9 @@ var password = AnsiConsole.Prompt(new TextPrompt<string>("Enter your [red]Passwo
 Console.ForegroundColor= ConsoleColor.DarkGreen;
 if (name != "Brandon")
 {
-Console.WriteLine($"\nUsername: {name}\nPassword: {password}");
-Console.WriteLine();
-
+//Console.WriteLine($"\nUsername: {name}\nPassword: {password}");
+Console.WriteLine("\nYou answered a .Ask with the name.\n" +
+    "and you also answered a .Prompt with the password.");
 }
 if (name =="Brandon")
 {
