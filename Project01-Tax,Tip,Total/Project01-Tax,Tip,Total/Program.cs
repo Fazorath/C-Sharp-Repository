@@ -10,8 +10,8 @@
 // Titile
 Console.WriteLine("Project 01 - Tax|Tip|Total");
 Console.WriteLine();
-
-// User price Variable
+while (true)
+{
 double price = 0;
 
 //Prompt aswell as variable assignment
@@ -29,11 +29,14 @@ double total = 0;
 // Concantates at the bottom x3
 Console.ForegroundColor = ConsoleColor.Green;
 tax = (double)(price * 0.15);
-Console.WriteLine($"Tax: ${double.Round(tax,4)}");
+Console.WriteLine($"Tax(15%): ${double.Round(tax,4)}");
 
 tip = (double)(price * 0.07);
-Console.WriteLine($"Tip: ${double.Round(tip,4)}");
+Console.WriteLine($"Tip(7%): ${double.Round(tip,4)}");
 
 total = (double)(price + tax + tip);
 Console.WriteLine($"Total: ${double.Round(total, 4)}");
-Console.ForegroundColor = ConsoleColor.White;
+Console.WriteLine();
+Console.ForegroundColor = ConsoleColor.White;    
+}
+// User price Variable
