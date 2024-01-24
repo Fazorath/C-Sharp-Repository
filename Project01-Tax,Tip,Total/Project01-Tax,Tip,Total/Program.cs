@@ -4,7 +4,7 @@
  * 1/19/24
  * Proffesor Montalbano
  * Project 1 Tax/Tip/Total
- * Updated to Use Methods 1/24/24 
+ * Updated to Use Methods 1/23/24 
  */
 
 
@@ -15,12 +15,16 @@ double tip = 0;
 double total = 0;
 
 
-
+// Method/Function for displaying the title
 void displayTitle()
 {
+    Console.ForegroundColor = ConsoleColor.Green;
     Console.WriteLine("Project 01 - Tax|Tip|Total");
+    Console.ForegroundColor= ConsoleColor.Red;
     Console.WriteLine();
 }
+
+// Method/Function for Displaying and returning the input Purchaseprice
 double purchasePrice()
 {
     Console.Write("Enter the Total Amount of your purchase: ");
@@ -29,6 +33,8 @@ double purchasePrice()
     return price;
 
 }
+
+// Calculates and displays the amount paid in taxes
 double taxes()
 {
     Console.ForegroundColor = ConsoleColor.Green;
@@ -37,12 +43,16 @@ double taxes()
     return tax;
 
 }
+
+// Calculates and displays the amount paid in taxes
 double tipcalculate()
 {
         tip = (double)(price * 0.07);
         Console.WriteLine($"Tip(7%): ${double.Round(tip,4)}");
         return tip;
 }
+
+// Calculates the total price after adding all the previous variables(price + tax + tip)
 double totalCalc()
 {
         total = (double)(price + tax + tip);
