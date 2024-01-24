@@ -2,7 +2,7 @@
 
 
 
-Console.SetWindowSize(150, 100  );
+Console.SetWindowSize(70, 100  );
 AnsiConsole.Write(new FigletText("Learning Spectre\n\n").Color(Color.Red).Centered());
 
 
