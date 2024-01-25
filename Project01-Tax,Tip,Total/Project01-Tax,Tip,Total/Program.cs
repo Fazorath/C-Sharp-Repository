@@ -39,7 +39,8 @@ double taxes()
 {
     Console.ForegroundColor = ConsoleColor.Green;
     tax = (double)(price * 0.15);
-    Console.WriteLine($"Tax(15%): ${double.Round(tax, 4)}");
+    Console.Write($"tax(15%): ");
+    Console.WriteLine(tax.ToString("C"));
     return tax;
 
 }
@@ -48,16 +49,17 @@ double taxes()
 double tipcalculate()
 {
         tip = (double)(price * 0.07);
-        Console.WriteLine($"Tip(7%): ${double.Round(tip,4)}");
-        return tip;
+        Console.Write($"Tip(7%): ");
+        Console.WriteLine(tip.ToString("C"));
+    return tip;
 }
 
 // Calculates the total price after adding all the previous variables(price + tax + tip)
 double totalCalc()
 {
         total = (double)(price + tax + tip);
-        Console.WriteLine($"Total: ${double.Round(total, 4)}");
-        Console.WriteLine();
+        Console.Write($"Total: ");
+        Console.WriteLine(total.ToString("C"));
         Console.ForegroundColor = ConsoleColor.White;  
         return total;
 }
