@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "learningBooleans", "learningBooleans.csproj", "{62D074C6-272D-4D33-89F2-B0984705833F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62D074C6-272D-4D33-89F2-B0984705833F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62D074C6-272D-4D33-89F2-B0984705833F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62D074C6-272D-4D33-89F2-B0984705833F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62D074C6-272D-4D33-89F2-B0984705833F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0FDFCEA6-BCE2-41C0-B3C2-4179910900DE}
+	EndGlobalSection
+EndGlobal
