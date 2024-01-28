@@ -42,6 +42,21 @@ namespace SwitchStatement
         {
             switch (current)
             {
+                case '<':
+                    target.Text += "&lt;";
+                    break;
+                case '>':
+                    target.Text += "&gt;";
+                    break;
+                case '&':
+                    target.Text += "&amp;";
+                    break;
+                case '\"':
+                    target.Text += "&#34;";
+                    break;
+                case '\'':
+                    target.Text += "&#39;";
+                    break;
                 default:
                     target.Text += current;
                     break;
