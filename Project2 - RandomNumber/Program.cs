@@ -13,8 +13,11 @@ StartGuesser();
 void Title()
 //Title Function
 {
+    string title = "Welcome to my Random Number Guesser\n";
+    int padding = (Console.WindowWidth - title.Length) / 2;
+    
     Console.ForegroundColor = ConsoleColor.Red;
-    Console.Write("Welcome to my Random Number Guesser\n");
+    Console.Write(title.PadLeft(padding + title.Length));
     Console.ForegroundColor = ConsoleColor.White;
 }
 int randomnumber()
@@ -42,28 +45,37 @@ void PlayoneRound()
 
     int number = randomnumber(); // new random number
     int attempts = 0; // clean attempts
-
-    while (true)
+    try
     {
-        int answer = userguess(); // user guesses            attempts++;
+        while (true)
+        {
+            int answer = userguess(); // user guesses            attempts++;
 
-        if (answer == number) // if right
-        {
-            Console.WriteLine("Congratulations you got the correct Answer\n\n" +
-                              "It took you: " + attempts + " Attempt(s)\n" +
-                              "------------------------------------------------");
-            break;
+            if (answer == number) // if right
+            {
+                Console.WriteLine("Congratulations you got the correct Answer\n\n" +
+                                  "It took you: " + attempts + " Attempt(s)\n" +
+                                  "------------------------------------------------");
+                break;
+            }
+            else if (answer > number) // if too high
+            {
+                attempts++;
+                Console.WriteLine("Too High. Try Again");
+            }
+            else if (answer < number) // if too low
+            {
+                attempts++;
+                Console.WriteLine("Too Low. Try Again");
+            }
         }
-        else if (answer > number) // if too high
-        {
-            attempts++;
-            Console.WriteLine("Too High. Try Again");
+
         }
-        else // if too low
-        {
-            attempts++;
-            Console.WriteLine("Too Low. Try Again");
-        }
+    catch (FormatException)
+    {
+
+        Console.ForegroundColor= ConsoleColor.Blue;
+        Console.WriteLine("\nInput wasn't in the correct format SmartyPants\n");
     }
 }
 void StartGuesser()
@@ -82,8 +94,8 @@ void StartGuesser()
         if (playAgain != "Y")
         {
             Console.ForegroundColor = ConsoleColor.Magenta;
-            Console.WriteLine("\n01010010 01101001 01100011 01101011 00100000 01110010 01101111 01101100 01101100 01100101 01100100\n" +
-                "00100000 01101101 01100001 01111001 01100010 01100101 00101110 ");
+            string binary = "01010010 01101001 01100011 01101011 00100000 01110010 01101111 01101100 01101100\n01100101 01100100 00100000 01101101 01100001 01111001 01100010 01100101 00101110 ";
+            Console.WriteLine(binary);
             Thread.Sleep(3000); // Messing around with this so included it.
             Console.Clear();
             Console.ForegroundColor= ConsoleColor.White;
