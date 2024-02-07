@@ -4,17 +4,18 @@
 // Project 2 Random Number Generator
 
 
-// Functions that run the madness
+// Everything needed to call the Program.
 Title();
 StartGuesser();
 
 
 
+// Functions that run the madness
 void Title()
 //Title Function
 {
     string title = "Welcome to my Random Number Guesser\n";
-    int padding = (Console.WindowWidth - title.Length) / 2;
+    int padding = (Console.WindowWidth - title.Length) / 2; // Centering Purposes
     
     Console.ForegroundColor = ConsoleColor.Red;
     Console.Write(title.PadLeft(padding + title.Length));
@@ -27,7 +28,7 @@ int randomnumber()
     int randnum = rnd.Next(0, 100); // initialized into int variable
     Console.ForegroundColor = ConsoleColor.Green;
     Console.Write("\nHere is your random Number: ** ");// returns random integers >= 0 and 100
-                                                       //Console.WriteLine(randnum);
+    //Console.WriteLine(randnum);
     return randnum;
 }
 int userguess()
@@ -41,11 +42,11 @@ int userguess()
 
 }
 void PlayoneRound()
+// Plays a single round of the guesser
 {
-
     int number = randomnumber(); // new random number
     int attempts = 0; // clean attempts
-    try
+    try // Kept pressing enter on accident so put in FormatException handling.
     {
         while (true)
         {
@@ -71,7 +72,7 @@ void PlayoneRound()
         }
 
         }
-    catch (FormatException)
+    catch (FormatException) // Tada the catch
     {
 
         Console.ForegroundColor= ConsoleColor.Blue;
@@ -80,23 +81,27 @@ void PlayoneRound()
 }
 void StartGuesser()
 {
+    // Establishes the loop that makes it run
     bool play = true;
     while (play)
     {
         PlayoneRound();
 
+        // Would you like to play again ?
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write("Would you like to play again? (Y/N): ");
         Console.ForegroundColor = ConsoleColor.Red;
         string playAgain = Console.ReadLine().ToUpper();
         Console.Write("------------------------------------------------\n");
 
+        // Aything other than Y prompts this
         if (playAgain != "Y")
         {
             Console.ForegroundColor = ConsoleColor.Magenta;
+            // Yay binary
             string binary = "01010010 01101001 01100011 01101011 00100000 01110010 01101111 01101100 01101100\n01100101 01100100 00100000 01101101 01100001 01111001 01100010 01100101 00101110 ";
             Console.WriteLine(binary);
-            Thread.Sleep(3000); // Messing around with this so included it.
+            Thread.Sleep(3000); // Messing around with this so included it :)
             Console.Clear();
             Console.ForegroundColor= ConsoleColor.White;
             play = false;
