@@ -11,8 +11,9 @@ StartGuesser();
 
 
 // Functions that run the madness
+
+//Title Function that i messed around with to center in the terminal(big SHOULD work on all terminals)
 void Title()
-//Title Function
 {
     string title = "Welcome to my Random Number Guesser\n";
     int padding = (Console.WindowWidth - title.Length) / 2; // Centering Purposes
@@ -21,8 +22,9 @@ void Title()
     Console.Write(title.PadLeft(padding + title.Length));
     Console.ForegroundColor = ConsoleColor.White;
 }
-int randomnumber()
+
 // Returns a random number between 1 and 100 using the Random Built in Class.
+int randomnumber()
 {
     Random rnd = new Random(); // Random number as shown in book
     int randnum = rnd.Next(0, 100); // initialized into int variable
@@ -31,6 +33,8 @@ int randomnumber()
     //Console.WriteLine(randnum);
     return randnum;
 }
+
+    // Asks the user to guess their number which is assigned to an integer, parsed, and then returned
 int userguess()
 {
     int guess = 0; // User guess
@@ -41,8 +45,10 @@ int userguess()
     return guess;
 
 }
+
+// Plays a single round of the guesser. Includes a try and a catch for when people are funny.
+// and a while loop that determines whether the user guessed within the given parameters and their respective outputs.
 void PlayoneRound()
-// Plays a single round of the guesser
 {
     int number = randomnumber(); // new random number
     int attempts = 0; // clean attempts
@@ -76,12 +82,14 @@ void PlayoneRound()
     {
 
         Console.ForegroundColor= ConsoleColor.Blue;
-        Console.WriteLine("\nInput wasn't in the correct format SmartyPants\n");
+        Console.WriteLine("\nInput wasn't in the correct format SmartyPants :| \n");
     }
 }
+
+    // Another while loop lol that calls <playoneRound()> function and when finished prompts user if they wants to play again.
+    // Plus..
 void StartGuesser()
 {
-    // Establishes the loop that makes it run
     bool play = true;
     while (play)
     {
