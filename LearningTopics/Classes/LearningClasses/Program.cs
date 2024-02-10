@@ -31,6 +31,9 @@ Wizard01.CastSpell();
 Wizard Wizard2 = new Wizard("Yannah","Avada");
 Wizard2.CastSpell();
 
+// Calling a static method that is shared between all instances of a class.
+Console.WriteLine(Wizard.Count);
+
 
 
 
@@ -41,15 +44,19 @@ class Wizard
     public string name;
     public string favoritespell;
     public string description;
-    public int spellslots;
-    public float experience;
+    private int spellslots;
+    private float experience;
+
+    public static int Count = 0;
 
     public Wizard(string _name, string _favoritespell)
     {
         name = _name;
         favoritespell = _favoritespell;
         spellslots = 2;
-        experience = 0;
+        experience = 0f;
+
+        Count++;
 
     }
 
