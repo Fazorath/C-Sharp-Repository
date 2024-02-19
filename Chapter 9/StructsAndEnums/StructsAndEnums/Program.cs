@@ -6,12 +6,16 @@ namespace StructsAndEnums
     {
         static void doWork()
         {
+            /*
             Month first = Month.December;
             Console.WriteLine(first);
             first++;
             Console.WriteLine(first);
-
-
+            */
+            var defaultDate = new Date();
+            Console.WriteLine(defaultDate);
+            Date weddingAnniversary = new Date(2021, Month.July, 4);
+            Console.WriteLine(weddingAnniversary);
         }
 
         static void Main()
