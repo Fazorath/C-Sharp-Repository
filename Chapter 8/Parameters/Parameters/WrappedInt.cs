@@ -8,6 +8,7 @@ namespace Parameters
 {
     class WrappedInt
     {
-        // TODO: Add fields
+        public int Number;
+
     }
 }

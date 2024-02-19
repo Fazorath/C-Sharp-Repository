@@ -6,7 +6,13 @@ namespace Classes
     {
         static void doWork()
         {
-            // TODO: Test the Point class
+            Point origin = new Point();
+            Point bottomRight = new Point(2496, 1664);
+            double distance = origin.DistanceTo(bottomRight);
+            Console.WriteLine($"Distance is: {distance}");
+            Console.WriteLine($"Number of Point objects:{ Point.ObjectCount()}");
+
+
         }
 
         static void Main(string[] args)
