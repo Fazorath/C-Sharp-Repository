@@ -36,7 +36,23 @@ namespace Cards
         {
             try
             {
-                // TODO: deal the cards
+                pack = new Pack();
+                for (var handNum = 0; handNum < NumHands; handNum++)
+                {
+                    hands[handNum] = new Hand();
+                    for (var numCards = 0; numCards < Hand.HandSize;numCards++)
+                    {
+                        var cardDealt = pack.DealCardFromPack();
+                        hands[handNum].AddCardToHand(cardDealt);
+                    }
+
+                }
+                north.Text = hands[0].ToString();
+                south.Text = hands[1].ToString();
+                east.Text = hands[2].ToString();
+                west.Text = hands[3].ToString();
+
+
             }
             catch (Exception ex)
             {
