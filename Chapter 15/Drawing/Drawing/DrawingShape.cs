@@ -22,6 +22,7 @@ namespace Drawing
             this._size = size;
         }
 
+<<<<<<< HEAD
         public int X
         {
             get => this._x;
@@ -46,6 +47,23 @@ namespace Drawing
         }
 
 
+=======
+        public void SetLocation(int xCoord, int yCoord)
+        {
+            this._x = xCoord;
+            this._y = yCoord;
+        }
+
+        public void SetColor(Color color)
+        {
+            if(this.shape!=null)
+            {
+                SolidColorBrush brush = new SolidColorBrush(color);
+                this.shape.Fill = brush;
+            }
+        }
+
+>>>>>>> be353c7c1611cd35d0c6f7ced1cdc27ec52ca5a8
         public virtual void Draw(Canvas canvas)
         {
             if(this.shape is null)

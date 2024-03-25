@@ -36,6 +36,7 @@ namespace Drawing
             if (mySquare is IDraw)
             {
                 IDraw drawSquare = mySquare;
+<<<<<<< HEAD
                 drawSquare.X = (int)mouseLocation.X;
                 drawSquare.Y = (int)mouseLocation.Y;
                 drawSquare.Draw(drawingCanvas);
@@ -47,6 +48,16 @@ namespace Drawing
                 IColor colorSquare = mySquare;
                 colorSquare.Color = Colors.BlueViolet;
 
+=======
+                drawSquare.SetLocation((int)mouseLocation.X, (int)mouseLocation.Y);
+                drawSquare.Draw(drawingCanvas);
+            }
+
+            if (mySquare is IColor)
+            {
+                IColor colorSquare = mySquare;
+                colorSquare.SetColor(Colors.BlueViolet);
+>>>>>>> be353c7c1611cd35d0c6f7ced1cdc27ec52ca5a8
             }
         }
 
@@ -58,16 +69,25 @@ namespace Drawing
             if (myCircle is IDraw)
             {
                 IDraw drawCircle = myCircle;
+<<<<<<< HEAD
                 drawCircle.X = (int)mouseLocation.X;
                 drawCircle.Y = (int)mouseLocation.Y;
                 drawCircle.Draw(drawingCanvas);
 
+=======
+                drawCircle.SetLocation((int)mouseLocation.X, (int)mouseLocation.Y);
+                drawCircle.Draw(drawingCanvas);
+>>>>>>> be353c7c1611cd35d0c6f7ced1cdc27ec52ca5a8
             }
 
             if (myCircle is IColor)
             {
                 IColor colorCircle = myCircle;
+<<<<<<< HEAD
                 colorCircle.Color = Colors.HotPink;
+=======
+                colorCircle.SetColor(Colors.HotPink);
+>>>>>>> be353c7c1611cd35d0c6f7ced1cdc27ec52ca5a8
             }
         }
     }
