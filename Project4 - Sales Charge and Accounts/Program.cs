@@ -10,8 +10,8 @@ class Program
     {
         // both files that need to be open a bool to determine menu
         bool exitprogram = false;
-        float[] salesData = ReadSalesFromFile("C:\\Users\\Yoenis\\Desktop\\Class Code\\C# REPO\\Project4\\Sales.txt");
-        int[] chargeAccounts = ReadChargeAccountsFromFile("C:\\Users\\Yoenis\\Desktop\\Class Code\\C# REPO\\Project4\\ChargeAccounts.txt");
+        float[] salesData = ReadSalesFromFile("Sales.txt");
+        int[] chargeAccounts = ReadChargeAccountsFromFile("ChargeAccounts.txt");
 
 
         while (!exitprogram)
@@ -20,7 +20,6 @@ class Program
             // Display the main menu
             Console.WriteLine("Main Menu\n");
             Console.ForegroundColor = ConsoleColor.Green;
-
             Console.WriteLine("1. Sales Section");
             Console.WriteLine("2. Charge Account Section");
             Console.WriteLine("3. Exit");
