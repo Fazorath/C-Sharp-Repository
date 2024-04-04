@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34616.47
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildTree", "BuildTree.csproj", "{999D34D1-356A-45FF-97B0-D4161A7875F9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{999D34D1-356A-45FF-97B0-D4161A7875F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{999D34D1-356A-45FF-97B0-D4161A7875F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{999D34D1-356A-45FF-97B0-D4161A7875F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{999D34D1-356A-45FF-97B0-D4161A7875F9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5C9A6932-C54A-4C10-B9D8-F2871B0E1FC7}
+	EndGlobalSection
+EndGlobal
