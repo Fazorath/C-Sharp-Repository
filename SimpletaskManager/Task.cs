@@ -25,7 +25,12 @@
         }
         public CustomTask(string title, string description, DateTime dueDate, bool isCompleted)
         {
-            // Constructor that is called
+            // Initializes a new instance of the CustomTask class.
+            // Parameters:
+            // title: The title of the task.
+            // description: The description of the task.
+            // dueDate: The due date of the task.
+            // isCompleted: A value indicating whether the task is completed.
             Title = title;
             Description = description;
             DueDate = dueDate;

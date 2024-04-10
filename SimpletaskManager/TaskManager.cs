@@ -31,6 +31,7 @@ namespace SimpleTaskManager
             Clear();
         }
         public void MarkTaskAsCompleted(int index)
+        // Marks a task as completed based on its index.
         {
             // using the index passed to mark as complete
             if (index >= 0 && index < tasks.Count)
@@ -50,6 +51,7 @@ namespace SimpleTaskManager
             Clear();
         }
         public void DeleteTask(int index)
+        // Deletes a task from the TaskManager based on its index.
         {
             // Using the index position passed it checks and deletes if available
             if (index >= 0 && index < tasks.Count)
