@@ -1,6 +1,9 @@
 ﻿// Importing the SimpleTaskManager namespace and System.Console which i saw on youtube so no longer have to write "Console." infront of everything
 using SimpleTaskManager;
 using static System.Console;
+// To do:
+// Exception handling on all of the inputs
+// Input Handling
 
 // Main program class
 class Program
