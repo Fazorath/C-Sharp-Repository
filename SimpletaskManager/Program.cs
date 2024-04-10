@@ -42,18 +42,21 @@ class Program
                     AddTask();
                     break;
                 case "2":
-                    WriteLine("Listing all tasks.");
+                    Clear();
                     taskManager.ListTasks();
                     break;
                 case "3":
-                    WriteLine("Marking a task as completed.");
+                    Clear();
+                    WriteLine("\nMarking a task as completed.");
                     MarkTaskAsCompleted();
                     break;
                 case "4":
+                    Clear();
                     WriteLine("Deleting a task.");
                     DeleteTask();
                     break;
                 case "5":
+                    Clear();
                     WriteLine("Exiting the program.");
                     exit = true;
                     break;
@@ -84,20 +87,24 @@ class Program
             CustomTask newTask = new CustomTask(title, description, dueDate, false);
             taskManager.AddTask(newTask);
             Clear();
-            WriteLine("Task added successfully.\n" +
-                "Press Enter to move on!\n");
+            Write("Task added successfully.\n" +
+                "Press Enter to move on!");
             ReadKey();
             Clear();
         }
         else
         {
-            WriteLine("Invalid date format. Task not added.");
+            Clear();
+            WriteLine("Invalid date format. Task not added.\nPress <Enter> to move on");
+            ReadKey();
+            Clear();
         }
     }
 
     static void MarkTaskAsCompleted()
     {
         Write("Enter the index of the task to mark as completed: ");
+        ForegroundColor = ConsoleColor.Green;
         if (int.TryParse(ReadLine(), out int index))
         {
             taskManager.MarkTaskAsCompleted(index);
@@ -111,13 +118,17 @@ class Program
     static void DeleteTask()
     {
         Write("Enter the index of the task to delete: ");
+        ForegroundColor = ConsoleColor.Green;
         if (int.TryParse(ReadLine(), out int index))
         {
             taskManager.DeleteTask(index);
         }
         else
         {
-            WriteLine("Invalid input. Please enter a valid index.");
+            Clear();
+            Write("Invalid input. Please enter a valid index.");
+            ReadKey();
+            Clear();
         }
     }
 }

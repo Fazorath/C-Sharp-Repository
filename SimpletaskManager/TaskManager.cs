@@ -1,4 +1,5 @@
 ﻿using System;
+using static System.Console;
 using System.Collections.Generic;
 
 namespace SimpleTaskManager
@@ -19,12 +20,17 @@ namespace SimpleTaskManager
 
         public void ListTasks()
         {
-            Console.WriteLine("All Tasks:");
+            WriteLine("All Tasks:");
+            ForegroundColor = ConsoleColor.Green;
             for (int i = 0; i < tasks.Count; i++)
             {
-                Console.WriteLine($"[{i}] {tasks[i]}");
-                Console.WriteLine("-----------------------");
+                WriteLine($"\n[{i}] {tasks[i]}");
+                WriteLine("-----------------------");
             }
+            ForegroundColor = ConsoleColor.Red;
+            Write("\nPress Enter to move on!");
+            ReadKey();
+            Clear();
         }
 
         public void MarkTaskAsCompleted(int index)
@@ -32,12 +38,18 @@ namespace SimpleTaskManager
             if (index >= 0 && index < tasks.Count)
             {
                 tasks[index].IsCompleted = true;
-                Console.WriteLine("Task marked as completed.");
+                ForegroundColor = ConsoleColor.Green;
+                WriteLine("\nTask marked as completed.");
             }
             else
             {
-                Console.WriteLine("Invalid task index.");
+                Clear();
+                WriteLine("\nInvalid task index.");
             }
+            Write("Press Enter to move on!");
+            ReadKey();
+            Clear();
+
         }
 
         public void DeleteTask(int index)
@@ -45,12 +57,17 @@ namespace SimpleTaskManager
             if (index >= 0 && index < tasks.Count)
             {
                 tasks.RemoveAt(index);
-                Console.WriteLine("Task deleted.");
+                WriteLine("\nTask deleted.");
             }
             else
             {
-                Console.WriteLine("Invalid task index.");
+                Clear();
+                WriteLine("\nInvalid task index.");
             }
+            Write("Press Enter to move on!");
+            ReadKey();
+            Clear();
+
         }
     }
 }
