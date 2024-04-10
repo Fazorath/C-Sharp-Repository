@@ -11,7 +11,7 @@ class Program
 
 {
     // TaskManager instance to manage tasks
-    static TaskManager taskManager = new TaskManager();
+    static readonly TaskManager taskManager = new();
 
     // Main method
     static void Main(string[] args)
@@ -107,7 +107,7 @@ class Program
         if (DateTime.TryParse(ReadLine(), out DateTime dueDate))
         {
             // Creating a new task and adding it to the task manager
-            CustomTask newTask = new CustomTask(title, description, dueDate, false);
+            CustomTask newTask = new(title, description, dueDate, false);
             taskManager.AddTask(newTask);
             Clear();
             Write("Task added successfully.\nPress Enter to continue");

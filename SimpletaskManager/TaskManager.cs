@@ -4,11 +4,11 @@ namespace SimpleTaskManager
 {
     public class TaskManager
     {
-        private List<CustomTask> tasks;
+        private readonly List<CustomTask> tasks;
         public TaskManager()
         {
             // Initializes a new list called tasks for generic collection
-            tasks = new List<CustomTask>();
+            tasks = [];
         }
         public void AddTask(CustomTask task)
         {
