@@ -122,19 +122,27 @@ class Program
     // Function to Mark a Task as Completed
     static void MarkTaskAsCompleted()
     {
-        // Prompts user to enter index of task to mark as completed
-        Write("Enter the index of the task to mark as completed: ");
-        ForegroundColor = ConsoleColor.Green;
-
-        if (int.TryParse(ReadLine(), out int index))
-            // all this does is try to convert my string into an int but fancy from stackoverlow lol
+        while (true)
         {
-            // Marks the task as completed in the task manager
-            taskManager.MarkTaskAsCompleted(index);
-        }
-        else
-        {
-            WriteLine("Invalid input. Please enter a valid index.");
+            Write("Enter the index of the task to mark as completed: ");
+            string input = ReadLine();
+            // Prompts user to enter index of task to mark as completed
+            try 
+            {
+                if (input.ToLower() == "cancel")
+                {
+                    WriteLine("Operation Cancelled");
+                    return;
+                }
+                int index = int.Parse(input);
+                taskManager.MarkTaskAsCompleted(index);
+                return;
+            }
+            catch (FormatException)
+            {
+                Clear();
+                WriteLine("\nInvalid input. Please enter a valid index or 'cancel' to go back.");
+            }
         }
     }
 
@@ -144,8 +152,8 @@ class Program
         // Function called to delete a task from list uses a loop for input handling 
         while (true)
         {
-            Console.Write("Enter the index of the task to delete (or 'cancel' to go back): ");
-            string input = Console.ReadLine();
+            Console.Write("Enter the index of the task to delete: ");
+            string input = ReadLine();
 
             // Format exception try block
             try
