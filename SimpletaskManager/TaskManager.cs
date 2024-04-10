@@ -1,23 +1,19 @@
 ﻿using System;
 using static System.Console;
 using System.Collections.Generic;
-
 namespace SimpleTaskManager
 {
     public class TaskManager
     {
         private List<CustomTask> tasks;
-
         public TaskManager()
         {
             tasks = new List<CustomTask>();
         }
-
         public void AddTask(CustomTask task)
         {
             tasks.Add(task);
         }
-
         public void ListTasks()
         {
             WriteLine("All Tasks:");
@@ -32,7 +28,6 @@ namespace SimpleTaskManager
             ReadKey();
             Clear();
         }
-
         public void MarkTaskAsCompleted(int index)
         {
             if (index >= 0 && index < tasks.Count)
@@ -49,9 +44,7 @@ namespace SimpleTaskManager
             Write("Press Enter to move on!");
             ReadKey();
             Clear();
-
         }
-
         public void DeleteTask(int index)
         {
             if (index >= 0 && index < tasks.Count)
@@ -67,7 +60,6 @@ namespace SimpleTaskManager
             Write("Press Enter to move on!");
             ReadKey();
             Clear();
-
         }
     }
 }

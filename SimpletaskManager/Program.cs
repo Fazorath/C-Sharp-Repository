@@ -1,16 +1,14 @@
 ﻿using SimpleTaskManager;
-using System;
+using System.Threading.Tasks;
 using static System.Console;
-
+using static System.Net.Mime.MediaTypeNames;
 class Program
 {
     static TaskManager taskManager = new TaskManager();
-
     static void Main(string[] args)
     {
         Menu();
     }
-
     static void Menu()
     {
         bool exit = false;
@@ -23,7 +21,6 @@ class Program
             ░▀▀█░░█░░█░█░█▀▀░█░░░█▀▀░░█░░█▀▀░▄▀▄░░█░░█░█░█▀█░█░█░█▀█░█░█░█▀▀░█▀▄
             ░▀▀▀░▀▀▀░▀░▀░▀░░░▀▀▀░▀▀▀░░▀░░▀▀▀░▀░▀░░▀░░▀░▀░▀░▀░▀░▀░▀░▀░▀▀▀░▀▀▀░▀░▀
 
-
             Menu Items
             1. Add a New Task
             2. List All Tasks
@@ -31,11 +28,7 @@ class Program
             4. Delete a Task
             5. Exit the Application
             """);
-
-            Write("\nEnter your Choice: ");
-            ForegroundColor = ConsoleColor.Red;
-            string userInput = ReadLine();
-
+                Write("\nEnter your Choice: "); ForegroundColor = ConsoleColor.Red; string userInput = ReadLine();
             switch (userInput)
             {
                 case "1":
@@ -64,10 +57,8 @@ class Program
                     WriteLine("Invalid choice. Please enter a number between 1 and 5.");
                     break;
             }
-
         }
     }
-
     static void AddTask()
     {
         Clear();
@@ -87,8 +78,7 @@ class Program
             CustomTask newTask = new CustomTask(title, description, dueDate, false);
             taskManager.AddTask(newTask);
             Clear();
-            Write("Task added successfully.\n" +
-                "Press Enter to move on!");
+            Write("Task added successfully.\n" + "Press Enter to move on!");
             ReadKey();
             Clear();
         }
@@ -100,7 +90,6 @@ class Program
             Clear();
         }
     }
-
     static void MarkTaskAsCompleted()
     {
         Write("Enter the index of the task to mark as completed: ");
@@ -114,21 +103,28 @@ class Program
             WriteLine("Invalid input. Please enter a valid index.");
         }
     }
-
     static void DeleteTask()
     {
-        Write("Enter the index of the task to delete: ");
-        ForegroundColor = ConsoleColor.Green;
-        if (int.TryParse(ReadLine(), out int index))
+        while (true)
         {
-            taskManager.DeleteTask(index);
-        }
-        else
-        {
-            Clear();
-            Write("Invalid input. Please enter a valid index.");
-            ReadKey();
-            Clear();
+            Console.Write("Enter the index of the task to delete (or 'cancel' to go back): ");
+            ForegroundColor = ConsoleColor.Green;
+            string input = Console.ReadLine();
+            if (input.ToLower() == "cancel")
+            {
+                Console.WriteLine("Operation cancelled.");
+                return; // Exit the function
+            }
+            try
+            {
+                int index = int.Parse(input);
+                taskManager.DeleteTask(index);
+                return; // Exit the function
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("\nInvalid input. Please enter a valid index or 'cancel' to go back.");
+            }
         }
     }
 }
