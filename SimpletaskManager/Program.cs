@@ -1,19 +1,23 @@
-﻿using SimpleTaskManager;
-using System.Threading.Tasks;
+﻿// Yoenis Hernandez
+// 04/08/2024
+// Simple task manager
+using SimpleTaskManager;
 using static System.Console;
-using static System.Net.Mime.MediaTypeNames;
 class Program
 {
     static TaskManager taskManager = new TaskManager();
     static void Main(string[] args)
     {
+        // Calls the main menu function
         Menu();
     }
     static void Menu()
     {
+        // Exit Variable with While loop
         bool exit = false;
         while (!exit)
         {
+            // Title that appears aswell as a switch case statement based on user input
             ForegroundColor = ConsoleColor.Green;
             WriteLine("""
 
@@ -61,6 +65,7 @@ class Program
     }
     static void AddTask()
     {
+        // What is called when user presser 1 in the main menu Asks for all of the args needed for our customtask class
         Clear();
         ForegroundColor = ConsoleColor.Green;
         Write("\nEnter Task Title: ");
@@ -73,9 +78,12 @@ class Program
         ForegroundColor = ConsoleColor.Green;
         Write("Enter Task Due Date (MM/DD/YYYY): ");
         ForegroundColor = ConsoleColor.Red;
+        // Checking to see if the DateTime was inputted correcly, if so continue
         if (DateTime.TryParse(ReadLine(), out DateTime dueDate))
         {
+            // initializes a new task from the class and calls the add task function from the taskmanager class
             CustomTask newTask = new CustomTask(title, description, dueDate, false);
+            // function to insert into collections list
             taskManager.AddTask(newTask);
             Clear();
             Write("Task added successfully.\n" + "Press Enter to move on!");
@@ -92,10 +100,12 @@ class Program
     }
     static void MarkTaskAsCompleted()
     {
+        // Function called when user presses 3 and that collects the index position to be used by the taskmanager class
         Write("Enter the index of the task to mark as completed: ");
         ForegroundColor = ConsoleColor.Green;
         if (int.TryParse(ReadLine(), out int index))
         {
+            // function that marks the indexed task as completed and updates list
             taskManager.MarkTaskAsCompleted(index);
         }
         else
@@ -105,25 +115,27 @@ class Program
     }
     static void DeleteTask()
     {
+        // Function called to delete a task from list uses a loop for input handling 
         while (true)
         {
             Console.Write("Enter the index of the task to delete (or 'cancel' to go back): ");
-            ForegroundColor = ConsoleColor.Green;
             string input = Console.ReadLine();
-            if (input.ToLower() == "cancel")
-            {
-                Console.WriteLine("Operation cancelled.");
-                return; // Exit the function
-            }
+            // Format exception try block
             try
             {
+                if (input.ToLower() == "cancel")
+                {
+                    Console.WriteLine("Operation cancelled.");
+                    return; // Exit the function
+                }
                 int index = int.Parse(input);
+                // passed the parsed index to deletetask func in taskmanager class incharge of deleting from list
                 taskManager.DeleteTask(index);
                 return; // Exit the function
             }
             catch (FormatException)
             {
-                Console.WriteLine("\nInvalid input. Please enter a valid index or 'cancel' to go back.");
+                WriteLine("\nInvalid input. Please enter a valid index or 'cancel' to go back.");
             }
         }
     }

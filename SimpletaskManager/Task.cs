@@ -1,8 +1,8 @@
-﻿using System;
-namespace SimpleTaskManager
+﻿namespace SimpleTaskManager
 {
     public class CustomTask
     {
+        // Needed Properties
         public string Title
         {
             get;
@@ -25,6 +25,7 @@ namespace SimpleTaskManager
         }
         public CustomTask(string title, string description, DateTime dueDate, bool isCompleted)
         {
+            // Constructor that is called
             Title = title;
             Description = description;
             DueDate = dueDate;
@@ -32,6 +33,7 @@ namespace SimpleTaskManager
         }
         public override string ToString()
         {
+            // Called when list all functiion is called
             return $"Title: {Title}\nDescription: {Description}\nDue Date: {DueDate}\nIs Completed: {IsCompleted}";
         }
     }
