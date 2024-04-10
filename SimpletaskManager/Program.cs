@@ -1,5 +1,6 @@
 ﻿// Importing the SimpleTaskManager namespace and System.Console which i saw on youtube so no longer have to write "Console." infront of everything
 using SimpleTaskManager;
+using System;
 using static System.Console;
 // To do:
 // Exception handling on all of the inputs
@@ -7,6 +8,7 @@ using static System.Console;
 
 // Main program class
 class Program
+
 {
     // TaskManager instance to manage tasks
     static TaskManager taskManager = new TaskManager();
@@ -14,6 +16,7 @@ class Program
     // Main method
     static void Main(string[] args)
     {
+        Console.SetWindowSize(70, 20);
         // Calls the main menu function
         Menu();
     }
@@ -72,6 +75,7 @@ class Program
                     exit = true;
                     break;
                 default:
+                    Clear();
                     WriteLine("Invalid choice. Please enter a number between 1 and 5.");
                     break;
             }
