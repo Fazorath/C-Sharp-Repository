@@ -29,6 +29,7 @@ namespace Project7_StudentManagement
 
                     """);
             ForegroundColor = ConsoleColor.Green;
+            // simple LINQ using Order by
             foreach (Student student in students)
             {
                 WriteLine($"ID: {student.StudentId}, Name: {student.FirstName} {student.LastName}, Age: {student.Age}");
@@ -58,6 +59,7 @@ namespace Project7_StudentManagement
                        
                    """);
             ForegroundColor = ConsoleColor.Green;
+            // Simple LINQ Using orderBy
             var studentsOrderedByFirstName = students.OrderBy(s => s.FirstName);
             foreach (var student in studentsOrderedByFirstName)
             {
@@ -68,7 +70,7 @@ namespace Project7_StudentManagement
             ReadKey();
             Clear();
         }
-
+        // Function to Display Student by last name
         public static void DisplayStudentOrderedByLastName(List<Student> students)
         {
             ForegroundColor = ConsoleColor.Magenta;
@@ -88,6 +90,7 @@ namespace Project7_StudentManagement
                        
                    """);
             ForegroundColor = ConsoleColor.Green;
+            // Simple LINQ using OrderBy
             var studentOrderedByLastName = students.OrderBy(s => s.LastName);
             foreach (var student in studentOrderedByLastName)
             {
@@ -98,6 +101,7 @@ namespace Project7_StudentManagement
             ReadKey();
             Clear();
         }
+        // Function to display Student by Age
         public static void DisplayStudentOrderedByAge(List<Student> students)
         {
             ForegroundColor = ConsoleColor.Magenta;
@@ -117,9 +121,11 @@ namespace Project7_StudentManagement
                        
                    """);
             ForegroundColor = ConsoleColor.Green;
+            // LINQ using .Where and OrderBy
             var orderedStudents = students
                                 .Where(s => s.Age >= 18 && s.Age <= 30)
             .OrderBy(s => s.Age);
+            // Loop to Display whatever is inside Var
             foreach (var student in orderedStudents)
             {
                 Console.WriteLine($"ID: {student.StudentId}, Name: {student.FirstName} {student.LastName}, Age: {student.Age}");

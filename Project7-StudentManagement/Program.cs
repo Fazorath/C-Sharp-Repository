@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using static System.Console;
 using static System.Net.Mime.MediaTypeNames;
-
+// Todo Retrieve all function orderby by ID number 
 
 namespace Project7_StudentManagement
 {
@@ -11,16 +11,14 @@ namespace Project7_StudentManagement
     {
         static void Main(string[] args)
         {
-            // Create a list of Student objects
+            // list of Student objects
             List<Student> students = new List<Student>
             {
                 new Student(1, "Yoenis", "Hernandez", 20),
                 new Student(2, "Yannah", "Blaise", 65),
+                new Student(3, "Boopity", "Scoop", 65),
                 new Student(4, "Brandon", "Goat", 21),
                 new Student(5, "Hello", "Mister", 45),
-                new Student(6, "World", "March", 21),
-                new Student(7, "Eggs", "Benedict", 79),
-                // Add more students as needed
             };
 
             void Menu()
@@ -29,7 +27,7 @@ namespace Project7_StudentManagement
                 bool exit = false;
                 while (!exit)
                 {
-                    // Displaying the menu
+                    
                     ForegroundColor = ConsoleColor.Magenta;
                     WriteLine("""
             
@@ -63,6 +61,7 @@ namespace Project7_StudentManagement
                     {
                         case "1":
                             Clear();
+                            // GetstudentDetails returns an object which is assigned to added students for AddStudent to take as parameter
                             var AddedStudent = StudentFunctions.GetStudentDetails();
                             StudentFunctions.AddStudent(students, AddedStudent);
                             break;
