@@ -63,6 +63,8 @@ namespace Project7_StudentManagement
                     {
                         case "1":
                             Clear();
+                            var AddedStudent = GetStudentDetails();
+                            AddStudent(students, AddedStudent);
                             break;
                         case "2":
                             Clear();
@@ -206,6 +208,61 @@ namespace Project7_StudentManagement
                 {
                     Console.WriteLine($"ID: {student.StudentId}, Name: {student.FirstName} {student.LastName}, Age: {student.Age}");
                 }
+                ForegroundColor = ConsoleColor.Magenta;
+                Write("\nPress Enter to move on!");
+                ReadKey();
+                Clear();
+            }
+            // Function to ask for student details and return a Student object
+            static Student GetStudentDetails()
+            {
+                ForegroundColor = ConsoleColor.Magenta;
+                WriteLine("""
+                   
+                    ██▓     ██▓ ███▄    █   █████       ██████ ▓██   ██▓  ██████ ▄▄▄█████▓▓█████  ███▄ ▄███▓
+                   ▓██▒    ▓██▒ ██ ▀█   █ ▒██▓  ██▒   ▒██    ▒  ▒██  ██▒▒██    ▒ ▓  ██▒ ▓▒▓█   ▀ ▓██▒▀█▀ ██▒
+                   ▒██░    ▒██▒▓██  ▀█ ██▒▒██▒  ██░   ░ ▓██▄     ▒██ ██░░ ▓██▄   ▒ ▓██░ ▒░▒███   ▓██    ▓██░
+                   ▒██░    ░██░▓██▒  ▐▌██▒░██  █▀ ░     ▒   ██▒  ░ ▐██▓░  ▒   ██▒░ ▓██▓ ░ ▒▓█  ▄ ▒██    ▒██ 
+                   ░██████▒░██░▒██░   ▓██░░▒███▒█▄    ▒██████▒▒  ░ ██▒▓░▒██████▒▒  ▒██▒ ░ ░▒████▒▒██▒   ░██▒
+                   ░ ▒░▓  ░░▓  ░ ▒░   ▒ ▒ ░░ ▒▒░ ▒    ▒ ▒▓▒ ▒ ░   ██▒▒▒ ▒ ▒▓▒ ▒ ░  ▒ ░░   ░░ ▒░ ░░ ▒░   ░  ░
+                   ░ ░ ▒  ░ ▒ ░░ ░░   ░ ▒░ ░ ▒░  ░    ░ ░▒  ░ ░ ▓██ ░▒░ ░ ░▒  ░ ░    ░     ░ ░  ░░  ░      ░
+                     ░ ░    ▒ ░   ░   ░ ░    ░   ░    ░  ░  ░   ▒ ▒ ░░  ░  ░  ░    ░         ░   ░      ░   
+                       ░  ░ ░           ░     ░             ░   ░ ░           ░              ░  ░       ░   
+                   
+                       Retrieving Students Between the ages of 18 and 30
+                       
+                   """);
+                Console.WriteLine("Enter student details:");
+                Console.Write("Student ID: ");
+                ForegroundColor = ConsoleColor.Green;
+                int studentId = int.Parse(Console.ReadLine());
+
+                ForegroundColor = ConsoleColor.Magenta;
+                Console.Write("First Name: ");
+                ForegroundColor = ConsoleColor.Green;
+                string firstName = Console.ReadLine();
+
+                ForegroundColor = ConsoleColor.Magenta;
+                Console.Write("Last Name: ");
+                ForegroundColor = ConsoleColor.Green;
+                string lastName = Console.ReadLine();
+
+                ForegroundColor = ConsoleColor.Magenta;
+                Console.Write("Age: ");
+                ForegroundColor = ConsoleColor.Green;
+                int age = int.Parse(Console.ReadLine());
+
+                // Create a new Student object with the provided details
+                Student newStudent = new Student(studentId, firstName, lastName, age);
+                return newStudent;
+            }
+
+            // Function to add a student to the list
+            static void AddStudent(List<Student> students, Student student)
+            {
+                // Add the new student to the list
+                students.Add(student);
+                Write($"\nStudent {student.FirstName} {student.LastName} added successfully!");
                 ForegroundColor = ConsoleColor.Magenta;
                 Write("\nPress Enter to move on!");
                 ReadKey();
