@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using static System.Console;
+using static System.Net.Mime.MediaTypeNames;
 
 
 namespace Project7_StudentManagement
@@ -14,11 +15,11 @@ namespace Project7_StudentManagement
             List<Student> students = new List<Student>
             {
                 new Student(1, "Yoenis", "Hernandez", 20),
-                new Student(2, "Yannah", "Blaise", 22),
+                new Student(2, "Yannah", "Blaise", 65),
                 new Student(4, "Brandon", "Goat", 21),
-                new Student(5, "Hello", "Mister", 21),
+                new Student(5, "Hello", "Mister", 45),
                 new Student(6, "World", "March", 21),
-                new Student(7, "Eggs", "Benedict", 21),
+                new Student(7, "Eggs", "Benedict", 79),
                 // Add more students as needed
             };
 
@@ -77,6 +78,7 @@ namespace Project7_StudentManagement
                             break;
                         case "5":
                             Clear();
+                            DisplayStudentOrderedByAge(students);   
                             break;
                         case "6":
                             Clear();
@@ -197,10 +199,12 @@ namespace Project7_StudentManagement
                        
                    """);
                 ForegroundColor = ConsoleColor.Green;
-                var studentOrderedByLastName = students.OrderBy(s => s.LastName);
-                foreach (var student in studentOrderedByLastName)
+                var orderedStudents = students
+                                    .Where(s => s.Age >= 18 && s.Age <= 30)
+                .OrderBy(s => s.Age);
+                foreach (var student in orderedStudents)
                 {
-                    Console.WriteLine($"Name: {student.LastName} {student.FirstName}");
+                    Console.WriteLine($"ID: {student.StudentId}, Name: {student.FirstName} {student.LastName}, Age: {student.Age}");
                 }
                 ForegroundColor = ConsoleColor.Magenta;
                 Write("\nPress Enter to move on!");
